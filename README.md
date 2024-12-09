@@ -28,7 +28,9 @@ The project workflow is divided into several stages:
 #### 3. **Classification and Numbering**  
 - The model outputs both:  
   - Dental classifications (e.g., crown, root canal, or cavity).  
-  - Standard numbering based on dental charts (e.g., FDI World Dental Federation notation).  
+  - Standard numbering based on dental charts (e.g., FDI World Dental Federation notation).
+  - ![image](https://github.com/user-attachments/assets/5c0d8a6f-701f-4bd4-98de-66d0896bdeaa)
+
 
 #### 4. **Training and Validation**  
 - **Training:**  
