@@ -1,89 +1,95 @@
-###🦷 ENHANCED DENTAL CLASSIFICATION AND NUMBERING SYSTEM USING DEEP LEARNING
-📌 Introduction
-The Enhanced Dental Classification and Numbering System Using Deep Learning aims to revolutionize dental healthcare by automating dental X-ray analysis. Traditional dental classification methods are manual, time-consuming, and prone to human errors. This system leverages deep learning (CNN) to accurately classify dental features and automatically assign tooth numbers based on standardized numbering systems.
+# 🦷 ENHANCED DENTAL CLASSIFICATION AND NUMBERING SYSTEM USING DEEP LEARNING  
 
-✅ Key Features:
+## 📌 Introduction  
+The **Enhanced Dental Classification and Numbering System Using Deep Learning** aims to revolutionize dental healthcare by automating dental X-ray analysis. Traditional dental classification methods are manual, time-consuming, and prone to human errors. This system leverages **deep learning (CNN)** to accurately classify dental features and automatically assign tooth numbers based on standardized numbering systems.  
 
-Automated detection of teeth and dental features.
+✅ **Key Features:**  
+- Automated detection of teeth and dental features.  
+- Tooth numbering using FDI World Dental Federation notation.  
+- Accurate classification of dental conditions (crowns, cavities, root canals, etc.).  
+- Integration with dental records for clinical use.  
 
-Tooth numbering using FDI World Dental Federation notation.
+---
 
-Accurate classification of dental conditions (crowns, cavities, root canals, etc.).
+## 🛠 Methodology  
 
-Integration with dental records for clinical use.
+### 1️⃣ Data Collection and Preprocessing  
+- Dental X-rays collected from public datasets and hospitals.  
+- Images annotated for tooth positions and conditions.  
+- **Preprocessing steps:**  
+  - Resizing images to a fixed resolution.  
+  - Normalization for uniform pixel intensity.  
+  - **Data Augmentation:** Rotation, flipping, and zooming to improve generalization.  
 
-🛠 Methodology
-1️⃣ Data Collection and Preprocessing
-Dental X-rays collected from public datasets and hospitals.
+---
 
-Images annotated for tooth positions and conditions.
+### 2️⃣ Model Architecture  
+- **Backbone network:** ResNet 50/101 with FPN (Feature Pyramid Network).  
+- **Region Proposal Network (RPN):** Generates candidate tooth regions.  
+- **RoI Align:** For feature extraction and segmentation.  
+- **Three branches:**  
+  - **Mask:** For tooth segmentation.  
+  - **Coordinates:** For bounding box regression.  
+  - **Category:** For classification of teeth.  
 
-Preprocessing steps:
+📌 **Architecture Diagram:**  
+<img width="1725" height="609" alt="image" src="https://github.com/user-attachments/assets/71365237-951b-4326-ad4f-0a9765cc39da" />  
 
-Resizing images to a fixed resolution.
+---
 
-Normalization for uniform pixel intensity.
+### 3️⃣ Tooth Classification & Numbering  
+- Assigns tooth numbers using **FDI notation**.  
+- Segments teeth with masks for better visualization.  
 
-Data Augmentation: Rotation, flipping, and zooming to improve generalization.
+<img width="1821" height="1007" alt="image" src="https://github.com/user-attachments/assets/5b5236d0-dd0e-4778-8688-a1adaee0215d" />  
 
-2️⃣ Model Architecture
-Backbone network: ResNet 50/101 with FPN (Feature Pyramid Network).
+---
 
-Region Proposal Network (RPN) for generating candidate tooth regions.
+### 4️⃣ Training and Validation  
+- **Optimizer:** Adam  
+- **Loss function:** Cross-Entropy Loss  
+- **Split:** 80% training, 20% validation  
+- **Regularization:** Dropout to prevent overfitting.  
 
-RoI Align for feature extraction and segmentation.
+📉 **Loss Curve:**  
+<img width="1412" height="767" alt="image" src="https://github.com/user-attachments/assets/a7d440f1-4f81-46de-a64f-500e56846922" />  
 
-Three branches:
+---
 
-Mask: For tooth segmentation.
+### 5️⃣ Results  
+- Achieved high accuracy in tooth detection and numbering.  
+- Generated clear segmentation masks and bounding boxes with confidence scores.  
 
-Coordinates: For bounding box regression.
+<img width="1241" height="673" alt="image" src="https://github.com/user-attachments/assets/363c2cf4-8ad0-4c5a-843c-2fe4fdcfb9b5" />  
 
-Category: For classification of teeth.
+---
 
-📌 Architecture Diagram:
-<img width="1725" height="609" alt="image" src="https://github.com/user-attachments/assets/71365237-951b-4326-ad4f-0a9765cc39da" />
+### 6️⃣ Deployment  
+- User-friendly web interface for dentists to upload X-rays.  
+- Integration with **electronic dental records (EDRs)** for seamless workflow.  
 
+---
 
-3️⃣ Tooth Classification & Numbering
-Assigns tooth numbers using FDI notation.
+## 🚀 Technologies Used  
+- Python  
+- TensorFlow / Keras  
+- OpenCV (image preprocessing)  
+- ResNet + FPN + Mask R-CNN  
+- Matplotlib & Seaborn (visualizations)  
 
-Segments teeth with masks for better visualization.
-<img width="1821" height="1007" alt="image" src="https://github.com/user-attachments/assets/5b5236d0-dd0e-4778-8688-a1adaee0215d" />
+---
 
+## 📂 How to Run the Project  
+```bash
+# Clone the repository
+git clone https://github.com/your-username/Enhanced-Dental-Classification.git
+cd Enhanced-Dental-Classification
 
+# Install dependencies
+pip install -r requirements.txt
 
-4️⃣ Training and Validation
-Optimizer: Adam
+# Train the model
+python train.py
 
-Loss function: Cross-Entropy Loss
-
-Split: 80% training, 20% validation
-
-Regularization: Dropout to prevent overfitting.
-
-📉 Loss Curve:
-<img width="1412" height="767" alt="image" src="https://github.com/user-attachments/assets/a7d440f1-4f81-46de-a64f-500e56846922" />
-
-
-5️⃣ Results
-Achieved high accuracy in tooth detection and numbering.
-
-Generated clear segmentation masks and bounding boxes with confidence scores.
-<img width="1241" height="673" alt="image" src="https://github.com/user-attachments/assets/363c2cf4-8ad0-4c5a-843c-2fe4fdcfb9b5" />
-
-6️⃣ Deployment
-User-friendly web interface for dentists to upload X-rays.
-
-Integration with electronic dental records (EDRs) for seamless workflow.
-
-🚀 Technologies Used
-Python
-
-TensorFlow / Keras
-
-OpenCV (image preprocessing)
-
-ResNet + FPN + Mask R-CNN
-
-Matplotlib & Seaborn (visualizations)
+# Test the model
+python predict.py --image sample_xray.jpg
