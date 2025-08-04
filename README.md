@@ -1,50 +1,89 @@
-# ENHANCED-DENTAL-CLASSIFICATION-AND-NUMBERING-SYSTEM-USING-DEEP-LEARNING
-### Introduction  
-The **Enhanced Dental Classification and Numbering System Using Deep Learning** is designed to revolutionize dental healthcare by automating the process of analyzing dental images. Traditional dental classification methods are often manual, time-consuming, and prone to human error. This project leverages deep learning to create a more accurate, efficient, and scalable solution for classifying dental X-rays and assigning unique identifiers to teeth based on standard numbering systems.  
-The system integrates advanced image processing techniques with convolutional neural networks (CNNs) to:  
-- Detect and classify dental features such as crowns, fillings, cavities, or abnormalities.  
-- Assign dental numbers to teeth for mapping and identification.  
-This solution aims to support dentists in diagnostic procedures, treatment planning, and patient record-keeping, enhancing both accuracy and efficiency.  
+🦷 ENHANCED DENTAL CLASSIFICATION AND NUMBERING SYSTEM USING DEEP LEARNING
+📌 Introduction
+The Enhanced Dental Classification and Numbering System Using Deep Learning aims to revolutionize dental healthcare by automating dental X-ray analysis. Traditional dental classification methods are manual, time-consuming, and prone to human errors. This system leverages deep learning (CNN) to accurately classify dental features and automatically assign tooth numbers based on standardized numbering systems.
 
----
+✅ Key Features:
 
-### Methodology  
-The project workflow is divided into several stages:  
+Automated detection of teeth and dental features.
 
-#### 1. **Data Collection and Preprocessing**  
-- **Data Sources:** Dental X-rays and intraoral images were collected from public datasets or hospitals.  
-- **Annotation:** Images were annotated for various dental features (tooth types, conditions, and numbers).  
-- **Preprocessing:**  
-  - Resizing images to a uniform resolution.  
-  - Normalizing pixel intensity values for better model performance.  
-  - Data augmentation techniques such as rotation, flipping, and zooming were used to create a robust dataset.
+Tooth numbering using FDI World Dental Federation notation.
 
-#### 2. **Model Development**  
-- **Convolutional Neural Network (CNN):**  
-  - A CNN architecture was developed with layers optimized for feature extraction and classification.  
-  - The architecture includes convolutional layers for feature extraction, pooling layers for dimensionality reduction, and fully connected layers for prediction.  
-- **Transfer Learning:** Pre-trained models like VGG16 or ResNet50 were fine-tuned for faster convergence and higher accuracy.  
+Accurate classification of dental conditions (crowns, cavities, root canals, etc.).
 
-#### 3. **Classification and Numbering**  
-- The model outputs both:  
-  - Dental classifications (e.g., crown, root canal, or cavity).  
-  - Standard numbering based on dental charts (e.g., FDI World Dental Federation notation).
-  - ![image](https://github.com/user-attachments/assets/5c0d8a6f-701f-4bd4-98de-66d0896bdeaa)
+Integration with dental records for clinical use.
+
+🛠 Methodology
+1️⃣ Data Collection and Preprocessing
+Dental X-rays collected from public datasets and hospitals.
+
+Images annotated for tooth positions and conditions.
+
+Preprocessing steps:
+
+Resizing images to a fixed resolution.
+
+Normalization for uniform pixel intensity.
+
+Data Augmentation: Rotation, flipping, and zooming to improve generalization.
+
+2️⃣ Model Architecture
+Backbone network: ResNet 50/101 with FPN (Feature Pyramid Network).
+
+Region Proposal Network (RPN) for generating candidate tooth regions.
+
+RoI Align for feature extraction and segmentation.
+
+Three branches:
+
+Mask: For tooth segmentation.
+
+Coordinates: For bounding box regression.
+
+Category: For classification of teeth.
+
+📌 Architecture Diagram:
+<img width="1725" height="609" alt="image" src="https://github.com/user-attachments/assets/71365237-951b-4326-ad4f-0a9765cc39da" />
 
 
-#### 4. **Training and Validation**  
-- **Training:**  
-  - Dataset was split into training and validation sets.  
-  - The Adam optimizer and cross-entropy loss were used to optimize the model.  
-  - Regularization techniques like dropout were applied to avoid overfitting.  
-- **Metrics:** Accuracy, precision, recall, and F1 score were used to evaluate model performance.  
+3️⃣ Tooth Classification & Numbering
+Assigns tooth numbers using FDI notation.
 
-#### 5. **Testing and Deployment**  
-- The trained model was tested on unseen data to evaluate its robustness.  
-- A user-friendly interface was developed to allow dentists to upload images and receive predictions.  
+Segments teeth with masks for better visualization.
+<img width="1821" height="1007" alt="image" src="https://github.com/user-attachments/assets/5b5236d0-dd0e-4778-8688-a1adaee0215d" />
 
-#### 6. **Integration with Healthcare Systems**  
-- The system was integrated with electronic dental records for seamless workflow.  
 
----
 
+4️⃣ Training and Validation
+Optimizer: Adam
+
+Loss function: Cross-Entropy Loss
+
+Split: 80% training, 20% validation
+
+Regularization: Dropout to prevent overfitting.
+
+📉 Loss Curve:
+<img width="1412" height="767" alt="image" src="https://github.com/user-attachments/assets/a7d440f1-4f81-46de-a64f-500e56846922" />
+
+
+5️⃣ Results
+Achieved high accuracy in tooth detection and numbering.
+
+Generated clear segmentation masks and bounding boxes with confidence scores.
+<img width="1241" height="673" alt="image" src="https://github.com/user-attachments/assets/363c2cf4-8ad0-4c5a-843c-2fe4fdcfb9b5" />
+
+6️⃣ Deployment
+User-friendly web interface for dentists to upload X-rays.
+
+Integration with electronic dental records (EDRs) for seamless workflow.
+
+🚀 Technologies Used
+Python
+
+TensorFlow / Keras
+
+OpenCV (image preprocessing)
+
+ResNet + FPN + Mask R-CNN
+
+Matplotlib & Seaborn (visualizations)
