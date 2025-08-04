@@ -1,4 +1,4 @@
-🦷 ENHANCED DENTAL CLASSIFICATION AND NUMBERING SYSTEM USING DEEP LEARNING
+###🦷 ENHANCED DENTAL CLASSIFICATION AND NUMBERING SYSTEM USING DEEP LEARNING
 📌 Introduction
 The Enhanced Dental Classification and Numbering System Using Deep Learning aims to revolutionize dental healthcare by automating dental X-ray analysis. Traditional dental classification methods are manual, time-consuming, and prone to human errors. This system leverages deep learning (CNN) to accurately classify dental features and automatically assign tooth numbers based on standardized numbering systems.
 
